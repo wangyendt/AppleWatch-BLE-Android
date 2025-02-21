@@ -3,23 +3,32 @@ import CoreBluetooth
 
 struct DeviceListView: View {
     @StateObject private var bluetoothManager = BluetoothManager()
+    @State private var showingDeviceDetails = false
+    @State private var selectedPeripheral: CBPeripheral?
     
     var body: some View {
         NavigationStack {
             List {
                 ForEach(bluetoothManager.discoveredPeripherals, id: \.identifier) { peripheral in
-                    NavigationLink {
-                        DeviceDetailView(bluetoothManager: bluetoothManager, peripheral: peripheral)
-                            .onAppear {
-                                bluetoothManager.connect(to: peripheral)
+                    VStack(alignment: .leading) {
+                        NavigationLink {
+                            DeviceDetailView(bluetoothManager: bluetoothManager, peripheral: peripheral)
+                                .onAppear {
+                                    bluetoothManager.connect(to: peripheral)
+                                }
+                        } label: {
+                            VStack(alignment: .leading) {
+                                Text(peripheral.name ?? "未知设备")
+                                    .font(.headline)
+                                Text(peripheral.identifier.uuidString)
+                                    .font(.caption2)
+                                    .foregroundColor(.gray)
+                                if let details = bluetoothManager.deviceDetails[peripheral.identifier.uuidString] {
+                                    Text(details)
+                                        .font(.caption2)
+                                        .foregroundColor(.gray)
+                                }
                             }
-                    } label: {
-                        VStack(alignment: .leading) {
-                            Text(peripheral.name ?? "未知设备")
-                                .font(.headline)
-                            Text(peripheral.identifier.uuidString)
-                                .font(.caption2)
-                                .foregroundColor(.gray)
                         }
                     }
                 }
