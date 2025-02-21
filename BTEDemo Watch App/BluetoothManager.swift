@@ -10,13 +10,17 @@ class BluetoothManager: NSObject, ObservableObject {
     @Published var discoveredCharacteristics: [CBCharacteristic] = []
     @Published var imuData: String = "等待数据..."
     @Published var deviceDetails: [String: String] = [:]
+    @Published var canSendData: Bool = false
     
     private var centralManager: CBCentralManager!
     private let logger = Logger(subsystem: "com.wayne.BTEDemo", category: "Bluetooth")
     
     // 目标UUID
     private let targetServiceUUID = "180D"
-    private let targetCharacteristicUUID = "2A37"
+    private let targetNotifyCharacteristicUUID = "2A37"
+    private let targetWriteCharacteristicUUID = "2A38"
+    
+    private var writeCharacteristic: CBCharacteristic?
     
     override init() {
         super.init()
@@ -50,12 +54,28 @@ class BluetoothManager: NSObject, ObservableObject {
         }
     }
     
+    func sendData(_ message: String) {
+        guard let characteristic = writeCharacteristic,
+              let peripheral = connectedPeripheral,
+              let data = message.data(using: .utf8) else {
+            self.logger.error("无法发送数据：特性未找到或设备未连接")
+            return
+        }
+        
+        peripheral.writeValue(data, for: characteristic, type: .withResponse)
+        self.logger.info("发送数据: \(message)")
+    }
+    
     private func isTargetService(_ uuid: CBUUID) -> Bool {
         return uuid.uuidString.hasSuffix(targetServiceUUID)
     }
     
-    private func isTargetCharacteristic(_ uuid: CBUUID) -> Bool {
-        return uuid.uuidString.hasSuffix(targetCharacteristicUUID)
+    private func isTargetNotifyCharacteristic(_ uuid: CBUUID) -> Bool {
+        return uuid.uuidString.hasSuffix(targetNotifyCharacteristicUUID)
+    }
+    
+    private func isTargetWriteCharacteristic(_ uuid: CBUUID) -> Bool {
+        return uuid.uuidString.hasSuffix(targetWriteCharacteristicUUID)
     }
 }
 
@@ -122,6 +142,8 @@ extension BluetoothManager: CBCentralManagerDelegate {
         self.connectedPeripheral = nil
         self.discoveredServices.removeAll()
         self.discoveredCharacteristics.removeAll()
+        self.writeCharacteristic = nil
+        self.canSendData = false
         if let error = error {
             self.logger.error("设备断开连接出错: \(error.localizedDescription)")
         } else {
@@ -142,7 +164,10 @@ extension BluetoothManager: CBPeripheralDelegate {
         for service in peripheral.services ?? [] {
             if self.isTargetService(service.uuid) {
                 self.logger.info("发现目标服务: \(service.uuid.uuidString)")
-                peripheral.discoverCharacteristics([CBUUID(string: targetCharacteristicUUID)], for: service)
+                peripheral.discoverCharacteristics(
+                    [CBUUID(string: targetNotifyCharacteristicUUID),
+                     CBUUID(string: targetWriteCharacteristicUUID)],
+                    for: service)
             }
         }
     }
@@ -157,9 +182,13 @@ extension BluetoothManager: CBPeripheralDelegate {
             self.logger.info("发现特性: \(characteristic.uuid.uuidString)")
             self.discoveredCharacteristics.append(characteristic)
             
-            if self.isTargetCharacteristic(characteristic.uuid) {
-                self.logger.info("发现目标特性，开始订阅")
+            if self.isTargetNotifyCharacteristic(characteristic.uuid) {
+                self.logger.info("发现通知特性，开始订阅")
                 peripheral.setNotifyValue(true, for: characteristic)
+            } else if self.isTargetWriteCharacteristic(characteristic.uuid) {
+                self.logger.info("发现写入特性")
+                self.writeCharacteristic = characteristic
+                self.canSendData = true
             }
         }
     }
@@ -177,6 +206,14 @@ extension BluetoothManager: CBPeripheralDelegate {
                 self.imuData = "接收到数据: \(data.map { String(format: "%02X", $0) }.joined())"
             }
             self.logger.info("\(self.imuData)")
+        }
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
+        if let error = error {
+            self.logger.error("写入数据失败: \(error.localizedDescription)")
+        } else {
+            self.logger.info("写入数据成功")
         }
     }
 } 

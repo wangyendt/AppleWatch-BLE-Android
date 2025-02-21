@@ -26,7 +26,8 @@ public class BlePeripheralService {
 
     // 自定义UUID
     public static final UUID SERVICE_UUID = UUID.fromString("0000180D-0000-1000-8000-00805F9B34FB");
-    public static final UUID CHARACTERISTIC_UUID = UUID.fromString("00002A37-0000-1000-8000-00805F9B34FB");
+    public static final UUID NOTIFY_CHARACTERISTIC_UUID = UUID.fromString("00002A37-0000-1000-8000-00805F9B34FB");
+    public static final UUID WRITE_CHARACTERISTIC_UUID = UUID.fromString("00002A38-0000-1000-8000-00805F9B34FB");
 
     private Context context;
     private BluetoothManager bluetoothManager;
@@ -34,15 +35,27 @@ public class BlePeripheralService {
     private BluetoothLeAdvertiser advertiser;
     private BluetoothGattServer gattServer;
     private List<BluetoothDevice> connectedDevices = new ArrayList<>();
+    private BleCallback callback;
 
     private int currentValue = 0;
     private Handler handler = new Handler();
     private boolean isRunning = false;
 
+    public interface BleCallback {
+        void onDeviceConnected(String deviceAddress);
+        void onDeviceDisconnected(String deviceAddress);
+        void onCounterUpdated(int value);
+        void onMessageReceived(String message);
+    }
+
     public BlePeripheralService(Context context) {
         this.context = context;
         bluetoothManager = (BluetoothManager) context.getSystemService(Context.BLUETOOTH_SERVICE);
         bluetoothAdapter = bluetoothManager.getAdapter();
+    }
+
+    public void setCallback(BleCallback callback) {
+        this.callback = callback;
     }
 
     public void startAdvertising() {
@@ -72,13 +85,22 @@ public class BlePeripheralService {
         gattServer = bluetoothManager.openGattServer(context, gattServerCallback);
         BluetoothGattService service = new BluetoothGattService(SERVICE_UUID, BluetoothGattService.SERVICE_TYPE_PRIMARY);
         
-        BluetoothGattCharacteristic characteristic = new BluetoothGattCharacteristic(
-                CHARACTERISTIC_UUID,
+        // 通知特性 - 用于发送数据
+        BluetoothGattCharacteristic notifyCharacteristic = new BluetoothGattCharacteristic(
+                NOTIFY_CHARACTERISTIC_UUID,
                 BluetoothGattCharacteristic.PROPERTY_READ | BluetoothGattCharacteristic.PROPERTY_NOTIFY,
                 BluetoothGattCharacteristic.PERMISSION_READ
         );
         
-        service.addCharacteristic(characteristic);
+        // 写入特性 - 用于接收数据
+        BluetoothGattCharacteristic writeCharacteristic = new BluetoothGattCharacteristic(
+                WRITE_CHARACTERISTIC_UUID,
+                BluetoothGattCharacteristic.PROPERTY_WRITE | BluetoothGattCharacteristic.PROPERTY_WRITE_NO_RESPONSE,
+                BluetoothGattCharacteristic.PERMISSION_WRITE
+        );
+        
+        service.addCharacteristic(notifyCharacteristic);
+        service.addCharacteristic(writeCharacteristic);
         gattServer.addService(service);
         startValueUpdates();
     }
@@ -92,7 +114,10 @@ public class BlePeripheralService {
                 
                 currentValue = (currentValue + 1) % 1000;
                 notifyValueChanged();
-                handler.postDelayed(this, 100); // 每100毫秒更新一次
+                if (callback != null) {
+                    callback.onCounterUpdated(currentValue);
+                }
+                handler.postDelayed(this, 100);
             }
         }, 100);
     }
@@ -102,7 +127,7 @@ public class BlePeripheralService {
 
         BluetoothGattCharacteristic characteristic = gattServer
                 .getService(SERVICE_UUID)
-                .getCharacteristic(CHARACTERISTIC_UUID);
+                .getCharacteristic(NOTIFY_CHARACTERISTIC_UUID);
 
         byte[] value = String.valueOf(currentValue).getBytes();
         characteristic.setValue(value);
@@ -141,9 +166,34 @@ public class BlePeripheralService {
             if (newState == BluetoothGatt.STATE_CONNECTED) {
                 connectedDevices.add(device);
                 Log.i(TAG, "设备已连接: " + device.getAddress());
+                if (callback != null) {
+                    callback.onDeviceConnected(device.getAddress());
+                }
             } else if (newState == BluetoothGatt.STATE_DISCONNECTED) {
                 connectedDevices.remove(device);
                 Log.i(TAG, "设备已断开: " + device.getAddress());
+                if (callback != null) {
+                    callback.onDeviceDisconnected(device.getAddress());
+                }
+            }
+        }
+
+        @Override
+        public void onCharacteristicWriteRequest(BluetoothDevice device, int requestId, BluetoothGattCharacteristic characteristic,
+                                               boolean preparedWrite, boolean responseNeeded, int offset, byte[] value) {
+            if (characteristic.getUuid().equals(WRITE_CHARACTERISTIC_UUID)) {
+                // 处理接收到的数据
+                String receivedData = new String(value);
+                Log.i(TAG, "收到数据: " + receivedData);
+                
+                if (callback != null) {
+                    callback.onMessageReceived(receivedData);
+                }
+                
+                // 如果需要响应
+                if (responseNeeded) {
+                    gattServer.sendResponse(device, requestId, BluetoothGatt.GATT_SUCCESS, 0, null);
+                }
             }
         }
     };

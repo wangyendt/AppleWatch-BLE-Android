@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -15,15 +16,17 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements BlePeripheralService.BleCallback {
 
     private BluetoothAdapter bluetoothAdapter;
     private BlePeripheralService blePeripheralService;
     private static final int PERMISSION_REQUEST_CODE = 1;
+    private MessageAdapter messageAdapter;
+    private TextView statusText;
+    private TextView counterText;
 
     private final ActivityResultLauncher<Intent> enableBtLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -40,11 +43,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+        // 初始化视图
+        statusText = findViewById(R.id.statusText);
+        counterText = findViewById(R.id.counterText);
+        RecyclerView messageList = findViewById(R.id.messageList);
+        messageAdapter = new MessageAdapter();
+        messageList.setLayoutManager(new LinearLayoutManager(this));
+        messageList.setAdapter(messageAdapter);
 
         BluetoothManager bluetoothManager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
         bluetoothAdapter = bluetoothManager.getAdapter();
@@ -121,8 +127,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void startBlePeripheral() {
         blePeripheralService = new BlePeripheralService(this);
+        blePeripheralService.setCallback(this);
         blePeripheralService.startAdvertising();
-        Toast.makeText(this, "BLE外围设备已启动", Toast.LENGTH_SHORT).show();
+        statusText.setText("BLE外围设备已启动");
     }
 
     @Override
@@ -131,5 +138,34 @@ public class MainActivity extends AppCompatActivity {
         if (blePeripheralService != null) {
             blePeripheralService.stop();
         }
+    }
+
+    @Override
+    public void onDeviceConnected(String deviceAddress) {
+        runOnUiThread(() -> {
+            statusText.setText("设备已连接: " + deviceAddress);
+            Toast.makeText(this, "设备已连接", Toast.LENGTH_SHORT).show();
+        });
+    }
+
+    @Override
+    public void onDeviceDisconnected(String deviceAddress) {
+        runOnUiThread(() -> {
+            statusText.setText("设备已断开连接");
+            Toast.makeText(this, "设备已断开连接", Toast.LENGTH_SHORT).show();
+        });
+    }
+
+    @Override
+    public void onCounterUpdated(int value) {
+        runOnUiThread(() -> counterText.setText("当前计数: " + value));
+    }
+
+    @Override
+    public void onMessageReceived(String message) {
+        runOnUiThread(() -> {
+            messageAdapter.addMessage(message);
+            Toast.makeText(this, "收到消息: " + message, Toast.LENGTH_SHORT).show();
+        });
     }
 }

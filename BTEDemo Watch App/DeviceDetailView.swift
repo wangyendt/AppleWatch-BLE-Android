@@ -5,13 +5,14 @@ struct DeviceDetailView: View {
     @ObservedObject var bluetoothManager: BluetoothManager
     let peripheral: CBPeripheral
     @Environment(\.dismiss) private var dismiss
+    @State private var messageToSend: String = ""
     
     var body: some View {
         List {
             // 设备信息
             Section("设备信息") {
                 VStack(alignment: .leading) {
-                    Text("名称: \(peripheral.name ?? "未知设备")")
+                    Text("名称: \(peripheral.name ?? "未知")")
                         .font(.caption2)
                     Text("ID: \(peripheral.identifier.uuidString)")
                         .font(.caption2)
@@ -52,6 +53,30 @@ struct DeviceDetailView: View {
                 Text(bluetoothManager.imuData)
                     .font(.caption2)
                     .multilineTextAlignment(.leading)
+            }
+            
+            // 发送消息
+            if bluetoothManager.canSendData {
+                Section("发送消息") {
+                    HStack {
+                        TextField("输入消息", text: $messageToSend)
+                            .font(.caption2)
+                    }
+                    .padding(.vertical, 4)
+                    
+                    Button(action: {
+                        if !messageToSend.isEmpty {
+                            bluetoothManager.sendData(messageToSend)
+                            messageToSend = ""
+                        }
+                    }) {
+                        Text("发送")
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.bordered)
+                    .tint(.blue)
+                    .disabled(messageToSend.isEmpty)
+                }
             }
             
             // 断开连接按钮
