@@ -8,7 +8,7 @@
 
 ## 🚀 项目简介
 
-这是一个突破性的项目，实现了Apple生态系统（包括Apple Watch和iPhone）与Android设备之间的**实时双向通信**！通过蓝牙低功耗(BLE)技术，打破了iOS和Android生态的壁垒，让跨平台通信变得简单而优雅。
+这是一个实验性的学习项目，实现了Apple生态系统（包括Apple Watch和iPhone）与Android设备之间的**实时双向通信**！通过蓝牙低功耗(BLE)技术，打破了iOS和Android生态的壁垒，让跨平台通信变得简单而优雅。
 
 ### 📱 支持的设备
 - Apple Watch：所有支持watchOS的Apple Watch设备
