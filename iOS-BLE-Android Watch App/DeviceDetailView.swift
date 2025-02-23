@@ -21,28 +21,34 @@ struct DeviceDetailView: View {
             
             // 服务列表
             Section("服务") {
-                ForEach(bluetoothManager.discoveredServices, id: \.uuid) { service in
-                    VStack(alignment: .leading, spacing: 5) {
-                        Text(service.uuid.uuidString)
-                            .font(.caption2)
-                            .bold()
-                        
-                        ForEach(bluetoothManager.discoveredCharacteristics.filter { $0.service?.uuid == service.uuid },
-                               id: \.uuid) { characteristic in
-                            VStack(alignment: .leading) {
-                                Text(characteristic.uuid.uuidString)
-                                    .font(.caption2)
-                                
-                                if characteristic.properties.contains(.notify) {
-                                    Button("订阅") {
-                                        peripheral.setNotifyValue(true, for: characteristic)
+                if bluetoothManager.discoveredServices.isEmpty {
+                    Text("正在搜索服务...")
+                        .font(.caption2)
+                        .foregroundColor(.gray)
+                } else {
+                    ForEach(bluetoothManager.discoveredServices, id: \.uuid) { service in
+                        VStack(alignment: .leading, spacing: 5) {
+                            Text(service.uuid.uuidString)
+                                .font(.caption2)
+                                .bold()
+                            
+                            ForEach(bluetoothManager.discoveredCharacteristics.filter { $0.service?.uuid == service.uuid },
+                                   id: \.uuid) { characteristic in
+                                VStack(alignment: .leading) {
+                                    Text(characteristic.uuid.uuidString)
+                                        .font(.caption2)
+                                    
+                                    if characteristic.properties.contains(.notify) {
+                                        Button("订阅") {
+                                            peripheral.setNotifyValue(true, for: characteristic)
+                                        }
+                                        .buttonStyle(.bordered)
+                                        .tint(.blue)
+                                        .font(.caption2)
                                     }
-                                    .buttonStyle(.bordered)
-                                    .tint(.blue)
-                                    .font(.caption2)
                                 }
+                                .padding(.leading, 10)
                             }
-                            .padding(.leading, 10)
                         }
                     }
                 }

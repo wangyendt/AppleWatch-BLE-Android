@@ -33,9 +33,10 @@ class BluetoothManager: NSObject, ObservableObject {
         discoveredPeripherals.removeAll()
         deviceDetails.removeAll()
         
-        // 使用完整UUID进行扫描
-        let serviceUUID = CBUUID(string: targetServiceUUID)
-        centralManager.scanForPeripherals(withServices: [serviceUUID], options: [CBCentralManagerScanOptionAllowDuplicatesKey: true])
+        // 修改扫描设置，先不限制服务UUID
+        centralManager.scanForPeripherals(withServices: nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey: false])
+        
+        self.logger.info("开始扫描设备")
     }
     
     func stopScanning() {
@@ -134,7 +135,7 @@ extension BluetoothManager: CBCentralManagerDelegate {
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         self.connectedPeripheral = peripheral
-        peripheral.discoverServices([CBUUID(string: targetServiceUUID)])
+        peripheral.discoverServices(nil)
         self.logger.info("已连接到设备: \(peripheral.name ?? "未知")")
     }
     
@@ -162,13 +163,8 @@ extension BluetoothManager: CBPeripheralDelegate {
         
         self.discoveredServices = peripheral.services ?? []
         for service in peripheral.services ?? [] {
-            if self.isTargetService(service.uuid) {
-                self.logger.info("发现目标服务: \(service.uuid.uuidString)")
-                peripheral.discoverCharacteristics(
-                    [CBUUID(string: targetNotifyCharacteristicUUID),
-                     CBUUID(string: targetWriteCharacteristicUUID)],
-                    for: service)
-            }
+            peripheral.discoverCharacteristics(nil, for: service)
+            self.logger.info("发现服务: \(service.uuid.uuidString)")
         }
     }
     
@@ -182,11 +178,13 @@ extension BluetoothManager: CBPeripheralDelegate {
             self.logger.info("发现特性: \(characteristic.uuid.uuidString)")
             self.discoveredCharacteristics.append(characteristic)
             
-            if self.isTargetNotifyCharacteristic(characteristic.uuid) {
-                self.logger.info("发现通知特性，开始订阅")
+            if characteristic.properties.contains(.notify) {
+                self.logger.info("发现可通知特性，自动订阅")
                 peripheral.setNotifyValue(true, for: characteristic)
-            } else if self.isTargetWriteCharacteristic(characteristic.uuid) {
-                self.logger.info("发现写入特性")
+            }
+            
+            if characteristic.properties.contains(.write) || characteristic.properties.contains(.writeWithoutResponse) {
+                self.logger.info("发现可写入特性")
                 self.writeCharacteristic = characteristic
                 self.canSendData = true
             }

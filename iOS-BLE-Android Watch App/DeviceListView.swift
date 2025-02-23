@@ -9,6 +9,11 @@ struct DeviceListView: View {
     var body: some View {
         NavigationStack {
             List {
+                if bluetoothManager.discoveredPeripherals.isEmpty {
+                    Text(bluetoothManager.isScanning ? "正在扫描..." : "未发现设备")
+                        .foregroundColor(.gray)
+                }
+                
                 ForEach(bluetoothManager.discoveredPeripherals, id: \.identifier) { peripheral in
                     VStack(alignment: .leading) {
                         NavigationLink {
@@ -45,6 +50,12 @@ struct DeviceListView: View {
                     }) {
                         Image(systemName: bluetoothManager.isScanning ? "stop.circle.fill" : "arrow.clockwise.circle.fill")
                     }
+                    .tint(bluetoothManager.isScanning ? .red : .blue)
+                }
+            }
+            .onChange(of: bluetoothManager.isScanning) { scanning in
+                if scanning {
+                    WKInterfaceDevice.current().play(.click)
                 }
             }
         }
