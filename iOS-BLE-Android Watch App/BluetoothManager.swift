@@ -11,6 +11,8 @@ class BluetoothManager: NSObject, ObservableObject {
     @Published var imuData: String = "等待数据..."
     @Published var deviceDetails: [String: String] = [:]
     @Published var canSendData: Bool = false
+    @Published var characteristicValues: [CBUUID: String] = [:]
+    @Published var subscribedCharacteristics: Set<CBUUID> = []
     
     private var centralManager: CBCentralManager!
     private let logger = Logger(subsystem: "com.wayne.iOS-BLE-Android", category: "Bluetooth")
@@ -50,6 +52,7 @@ class BluetoothManager: NSObject, ObservableObject {
     }
     
     func disconnect() {
+        unsubscribeFromAllCharacteristics()
         if let peripheral = connectedPeripheral {
             centralManager.cancelPeripheralConnection(peripheral)
         }
@@ -65,6 +68,29 @@ class BluetoothManager: NSObject, ObservableObject {
         
         peripheral.writeValue(data, for: characteristic, type: .withResponse)
         self.logger.info("发送数据: \(message)")
+    }
+    
+    func subscribeToCharacteristic(_ characteristic: CBCharacteristic) {
+        guard let peripheral = connectedPeripheral else { return }
+        peripheral.setNotifyValue(true, for: characteristic)
+        subscribedCharacteristics.insert(characteristic.uuid)
+        self.logger.info("订阅特性: \(characteristic.uuid.uuidString)")
+    }
+    
+    func unsubscribeFromCharacteristic(_ characteristic: CBCharacteristic) {
+        guard let peripheral = connectedPeripheral else { return }
+        peripheral.setNotifyValue(false, for: characteristic)
+        subscribedCharacteristics.remove(characteristic.uuid)
+        characteristicValues.removeValue(forKey: characteristic.uuid)
+        self.logger.info("取消订阅特性: \(characteristic.uuid.uuidString)")
+    }
+    
+    func unsubscribeFromAllCharacteristics() {
+        guard let peripheral = connectedPeripheral else { return }
+        for characteristic in discoveredCharacteristics where subscribedCharacteristics.contains(characteristic.uuid) {
+            unsubscribeFromCharacteristic(characteristic)
+        }
+        self.logger.info("取消所有订阅")
     }
     
     private func isTargetService(_ uuid: CBUUID) -> Bool {
@@ -198,12 +224,14 @@ extension BluetoothManager: CBPeripheralDelegate {
         }
         
         if let data = characteristic.value {
+            let value: String
             if let stringValue = String(data: data, encoding: .utf8) {
-                self.imuData = "接收到数据: \(stringValue)"
+                value = stringValue
             } else {
-                self.imuData = "接收到数据: \(data.map { String(format: "%02X", $0) }.joined())"
+                value = data.map { String(format: "%02X", $0) }.joined()
             }
-            self.logger.info("\(self.imuData)")
+            characteristicValues[characteristic.uuid] = value
+            self.logger.info("收到数据 [\(characteristic.uuid.uuidString)]: \(value)")
         }
     }
     

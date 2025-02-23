@@ -19,7 +19,7 @@ struct DeviceDetailView: View {
                 }
             }
             
-            // 服务列表
+            // 服务和特征列表
             Section("服务") {
                 if bluetoothManager.discoveredServices.isEmpty {
                     Text("正在搜索服务...")
@@ -39,12 +39,29 @@ struct DeviceDetailView: View {
                                         .font(.caption2)
                                     
                                     if characteristic.properties.contains(.notify) {
-                                        Button("订阅") {
-                                            peripheral.setNotifyValue(true, for: characteristic)
+                                        HStack {
+                                            if bluetoothManager.subscribedCharacteristics.contains(characteristic.uuid) {
+                                                Button("取消订阅") {
+                                                    bluetoothManager.unsubscribeFromCharacteristic(characteristic)
+                                                }
+                                                .buttonStyle(.bordered)
+                                                .tint(.red)
+                                                .font(.caption2)
+                                            } else {
+                                                Button("订阅") {
+                                                    bluetoothManager.subscribeToCharacteristic(characteristic)
+                                                }
+                                                .buttonStyle(.bordered)
+                                                .tint(.blue)
+                                                .font(.caption2)
+                                            }
                                         }
-                                        .buttonStyle(.bordered)
-                                        .tint(.blue)
-                                        .font(.caption2)
+                                        
+                                        if let value = bluetoothManager.characteristicValues[characteristic.uuid] {
+                                            Text("收到: \(value)")
+                                                .font(.caption2)
+                                                .foregroundColor(.gray)
+                                        }
                                     }
                                 }
                                 .padding(.leading, 10)
@@ -52,13 +69,6 @@ struct DeviceDetailView: View {
                         }
                     }
                 }
-            }
-            
-            // IMU数据
-            Section("IMU数据") {
-                Text(bluetoothManager.imuData)
-                    .font(.caption2)
-                    .multilineTextAlignment(.leading)
             }
             
             // 发送消息
@@ -94,5 +104,8 @@ struct DeviceDetailView: View {
             }
         }
         .navigationTitle("设备详情")
+        .onDisappear {
+            bluetoothManager.unsubscribeFromAllCharacteristics()
+        }
     }
 } 
