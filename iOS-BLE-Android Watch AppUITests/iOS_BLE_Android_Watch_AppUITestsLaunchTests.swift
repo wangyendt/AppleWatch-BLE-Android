@@ -1,13 +1,13 @@
 //
-//  BTEDemoUITestsLaunchTests.swift
-//  BTEDemoUITests
+//  iOS_BLE_Android_Watch_AppUITestsLaunchTests.swift
+//  iOS-BLE-Android Watch AppUITests
 //
-//  Created by wayne on 2025/2/22.
+//  Created by wayne on 2025/2/23.
 //
 
 import XCTest
 
-final class BTEDemoUITestsLaunchTests: XCTestCase {
+final class iOS_BLE_Android_Watch_AppUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

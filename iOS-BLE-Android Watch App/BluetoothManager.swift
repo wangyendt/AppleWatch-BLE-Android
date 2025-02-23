@@ -13,7 +13,7 @@ class BluetoothManager: NSObject, ObservableObject {
     @Published var canSendData: Bool = false
     
     private var centralManager: CBCentralManager!
-    private let logger = Logger(subsystem: "com.wayne.BTEDemo", category: "Bluetooth")
+    private let logger = Logger(subsystem: "com.wayne.iOS-BLE-Android", category: "Bluetooth")
     
     // 目标UUID
     private let targetServiceUUID = "180D"

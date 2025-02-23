@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B0404EFA2D68E95300BA913A /* BTEDemo Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B0404EF92D68E95300BA913A /* BTEDemo Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B0404EFA2D68E95300BA913A /* iOS-BLE-Android.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B0404EF92D68E95300BA913A /* iOS-BLE-Android.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -16,35 +16,35 @@
 			containerPortal = B0404ECB2D68E95200BA913A /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B0404ED22D68E95200BA913A;
-			remoteInfo = BTEDemo;
+			remoteInfo = iOS-BLE-Android;
 		};
 		B0404EEE2D68E95300BA913A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B0404ECB2D68E95200BA913A /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B0404ED22D68E95200BA913A;
-			remoteInfo = BTEDemo;
+			remoteInfo = iOS-BLE-Android;
 		};
 		B0404EFB2D68E95300BA913A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B0404ECB2D68E95200BA913A /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B0404EF82D68E95300BA913A;
-			remoteInfo = "BTEDemo Watch App";
+			remoteInfo = "iOS-BLE-Android Watch App";
 		};
 		B0404F0C2D68E95400BA913A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B0404ECB2D68E95200BA913A /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B0404EF82D68E95300BA913A;
-			remoteInfo = "BTEDemo Watch App";
+			remoteInfo = "iOS-BLE-Android Watch App";
 		};
 		B0404F162D68E95400BA913A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B0404ECB2D68E95200BA913A /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B0404EF82D68E95300BA913A;
-			remoteInfo = "BTEDemo Watch App";
+			remoteInfo = "iOS-BLE-Android Watch App";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -55,7 +55,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				B0404EFA2D68E95300BA913A /* BTEDemo Watch App.app in Embed Watch Content */,
+				B0404EFA2D68E95300BA913A /* iOS-BLE-Android.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,43 +63,43 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B0404ED32D68E95200BA913A /* BTEDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BTEDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0404EE32D68E95300BA913A /* BTEDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BTEDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0404EED2D68E95300BA913A /* BTEDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BTEDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0404EF92D68E95300BA913A /* BTEDemo Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BTEDemo Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0404F0B2D68E95400BA913A /* BTEDemo Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BTEDemo Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0404F152D68E95400BA913A /* BTEDemo Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BTEDemo Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0404ED32D68E95200BA913A /* iOS-BLE-Android.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS-BLE-Android.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0404EE32D68E95300BA913A /* iOS-BLE-AndroidTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOS-BLE-AndroidTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0404EED2D68E95300BA913A /* iOS-BLE-AndroidUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOS-BLE-AndroidUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0404EF92D68E95300BA913A /* iOS-BLE-Android.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-BLE-Android.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0404F0B2D68E95400BA913A /* iOS-BLE-Android Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-BLE-Android Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0404F152D68E95400BA913A /* iOS-BLE-Android Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-BLE-Android Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		B0404ED52D68E95200BA913A /* BTEDemo */ = {
+		B0404ED52D68E95200BA913A /* iOS-BLE-Android */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = BTEDemo;
+			path = iOS-BLE-Android;
 			sourceTree = "<group>";
 		};
-		B0404EE62D68E95300BA913A /* BTEDemoTests */ = {
+		B0404EE62D68E95300BA913A /* iOS-BLE-AndroidTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = BTEDemoTests;
+			path = iOS-BLE-AndroidTests;
 			sourceTree = "<group>";
 		};
-		B0404EF02D68E95300BA913A /* BTEDemoUITests */ = {
+		B0404EF02D68E95300BA913A /* iOS-BLE-AndroidUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = BTEDemoUITests;
+			path = iOS-BLE-AndroidUITests;
 			sourceTree = "<group>";
 		};
-		B0404EFD2D68E95300BA913A /* BTEDemo Watch App */ = {
+		B0404EFD2D68E95300BA913A /* iOS-BLE-Android Watch App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "BTEDemo Watch App";
+			path = "iOS-BLE-Android Watch App";
 			sourceTree = "<group>";
 		};
-		B0404F0E2D68E95400BA913A /* BTEDemo Watch AppTests */ = {
+		B0404F0E2D68E95400BA913A /* iOS-BLE-Android Watch AppTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "BTEDemo Watch AppTests";
+			path = "iOS-BLE-Android Watch AppTests";
 			sourceTree = "<group>";
 		};
-		B0404F182D68E95400BA913A /* BTEDemo Watch AppUITests */ = {
+		B0404F182D68E95400BA913A /* iOS-BLE-Android Watch AppUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "BTEDemo Watch AppUITests";
+			path = "iOS-BLE-Android Watch AppUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -153,12 +153,12 @@
 		B0404ECA2D68E95200BA913A = {
 			isa = PBXGroup;
 			children = (
-				B0404ED52D68E95200BA913A /* BTEDemo */,
-				B0404EE62D68E95300BA913A /* BTEDemoTests */,
-				B0404EF02D68E95300BA913A /* BTEDemoUITests */,
-				B0404EFD2D68E95300BA913A /* BTEDemo Watch App */,
-				B0404F0E2D68E95400BA913A /* BTEDemo Watch AppTests */,
-				B0404F182D68E95400BA913A /* BTEDemo Watch AppUITests */,
+				B0404ED52D68E95200BA913A /* iOS-BLE-Android */,
+				B0404EE62D68E95300BA913A /* iOS-BLE-AndroidTests */,
+				B0404EF02D68E95300BA913A /* iOS-BLE-AndroidUITests */,
+				B0404EFD2D68E95300BA913A /* iOS-BLE-Android Watch App */,
+				B0404F0E2D68E95400BA913A /* iOS-BLE-Android Watch AppTests */,
+				B0404F182D68E95400BA913A /* iOS-BLE-Android Watch AppUITests */,
 				B0404ED42D68E95200BA913A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -166,12 +166,12 @@
 		B0404ED42D68E95200BA913A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B0404ED32D68E95200BA913A /* BTEDemo.app */,
-				B0404EE32D68E95300BA913A /* BTEDemoTests.xctest */,
-				B0404EED2D68E95300BA913A /* BTEDemoUITests.xctest */,
-				B0404EF92D68E95300BA913A /* BTEDemo Watch App.app */,
-				B0404F0B2D68E95400BA913A /* BTEDemo Watch AppTests.xctest */,
-				B0404F152D68E95400BA913A /* BTEDemo Watch AppUITests.xctest */,
+				B0404ED32D68E95200BA913A /* iOS-BLE-Android.app */,
+				B0404EE32D68E95300BA913A /* iOS-BLE-AndroidTests.xctest */,
+				B0404EED2D68E95300BA913A /* iOS-BLE-AndroidUITests.xctest */,
+				B0404EF92D68E95300BA913A /* iOS-BLE-Android.app */,
+				B0404F0B2D68E95400BA913A /* iOS-BLE-Android Watch AppTests.xctest */,
+				B0404F152D68E95400BA913A /* iOS-BLE-Android Watch AppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -179,9 +179,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B0404ED22D68E95200BA913A /* BTEDemo */ = {
+		B0404ED22D68E95200BA913A /* iOS-BLE-Android */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B0404F232D68E95400BA913A /* Build configuration list for PBXNativeTarget "BTEDemo" */;
+			buildConfigurationList = B0404F232D68E95400BA913A /* Build configuration list for PBXNativeTarget "iOS-BLE-Android" */;
 			buildPhases = (
 				B0404ECF2D68E95200BA913A /* Sources */,
 				B0404ED02D68E95200BA913A /* Frameworks */,
@@ -194,18 +194,18 @@
 				B0404EFC2D68E95300BA913A /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				B0404ED52D68E95200BA913A /* BTEDemo */,
+				B0404ED52D68E95200BA913A /* iOS-BLE-Android */,
 			);
-			name = BTEDemo;
+			name = iOS-BLE-Android;
 			packageProductDependencies = (
 			);
-			productName = BTEDemo;
-			productReference = B0404ED32D68E95200BA913A /* BTEDemo.app */;
+			productName = iOS-BLE-Android;
+			productReference = B0404ED32D68E95200BA913A /* iOS-BLE-Android.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B0404EE22D68E95300BA913A /* BTEDemoTests */ = {
+		B0404EE22D68E95300BA913A /* iOS-BLE-AndroidTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B0404F262D68E95400BA913A /* Build configuration list for PBXNativeTarget "BTEDemoTests" */;
+			buildConfigurationList = B0404F262D68E95400BA913A /* Build configuration list for PBXNativeTarget "iOS-BLE-AndroidTests" */;
 			buildPhases = (
 				B0404EDF2D68E95300BA913A /* Sources */,
 				B0404EE02D68E95300BA913A /* Frameworks */,
@@ -217,18 +217,18 @@
 				B0404EE52D68E95300BA913A /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				B0404EE62D68E95300BA913A /* BTEDemoTests */,
+				B0404EE62D68E95300BA913A /* iOS-BLE-AndroidTests */,
 			);
-			name = BTEDemoTests;
+			name = iOS-BLE-AndroidTests;
 			packageProductDependencies = (
 			);
-			productName = BTEDemoTests;
-			productReference = B0404EE32D68E95300BA913A /* BTEDemoTests.xctest */;
+			productName = iOS-BLE-AndroidTests;
+			productReference = B0404EE32D68E95300BA913A /* iOS-BLE-AndroidTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B0404EEC2D68E95300BA913A /* BTEDemoUITests */ = {
+		B0404EEC2D68E95300BA913A /* iOS-BLE-AndroidUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B0404F292D68E95400BA913A /* Build configuration list for PBXNativeTarget "BTEDemoUITests" */;
+			buildConfigurationList = B0404F292D68E95400BA913A /* Build configuration list for PBXNativeTarget "iOS-BLE-AndroidUITests" */;
 			buildPhases = (
 				B0404EE92D68E95300BA913A /* Sources */,
 				B0404EEA2D68E95300BA913A /* Frameworks */,
@@ -240,18 +240,18 @@
 				B0404EEF2D68E95300BA913A /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				B0404EF02D68E95300BA913A /* BTEDemoUITests */,
+				B0404EF02D68E95300BA913A /* iOS-BLE-AndroidUITests */,
 			);
-			name = BTEDemoUITests;
+			name = iOS-BLE-AndroidUITests;
 			packageProductDependencies = (
 			);
-			productName = BTEDemoUITests;
-			productReference = B0404EED2D68E95300BA913A /* BTEDemoUITests.xctest */;
+			productName = iOS-BLE-AndroidUITests;
+			productReference = B0404EED2D68E95300BA913A /* iOS-BLE-AndroidUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		B0404EF82D68E95300BA913A /* BTEDemo Watch App */ = {
+		B0404EF82D68E95300BA913A /* iOS-BLE-Android Watch App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B0404F1F2D68E95400BA913A /* Build configuration list for PBXNativeTarget "BTEDemo Watch App" */;
+			buildConfigurationList = B0404F1F2D68E95400BA913A /* Build configuration list for PBXNativeTarget "iOS-BLE-Android Watch App" */;
 			buildPhases = (
 				B0404EF52D68E95300BA913A /* Sources */,
 				B0404EF62D68E95300BA913A /* Frameworks */,
@@ -262,18 +262,18 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				B0404EFD2D68E95300BA913A /* BTEDemo Watch App */,
+				B0404EFD2D68E95300BA913A /* iOS-BLE-Android Watch App */,
 			);
-			name = "BTEDemo Watch App";
+			name = "iOS-BLE-Android Watch App";
 			packageProductDependencies = (
 			);
-			productName = "BTEDemo Watch App";
-			productReference = B0404EF92D68E95300BA913A /* BTEDemo Watch App.app */;
+			productName = "iOS-BLE-Android Watch App";
+			productReference = B0404EF92D68E95300BA913A /* iOS-BLE-Android.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B0404F0A2D68E95400BA913A /* BTEDemo Watch AppTests */ = {
+		B0404F0A2D68E95400BA913A /* iOS-BLE-Android Watch AppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B0404F2C2D68E95400BA913A /* Build configuration list for PBXNativeTarget "BTEDemo Watch AppTests" */;
+			buildConfigurationList = B0404F2C2D68E95400BA913A /* Build configuration list for PBXNativeTarget "iOS-BLE-Android Watch AppTests" */;
 			buildPhases = (
 				B0404F072D68E95400BA913A /* Sources */,
 				B0404F082D68E95400BA913A /* Frameworks */,
@@ -285,18 +285,18 @@
 				B0404F0D2D68E95400BA913A /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				B0404F0E2D68E95400BA913A /* BTEDemo Watch AppTests */,
+				B0404F0E2D68E95400BA913A /* iOS-BLE-Android Watch AppTests */,
 			);
-			name = "BTEDemo Watch AppTests";
+			name = "iOS-BLE-Android Watch AppTests";
 			packageProductDependencies = (
 			);
-			productName = "BTEDemo Watch AppTests";
-			productReference = B0404F0B2D68E95400BA913A /* BTEDemo Watch AppTests.xctest */;
+			productName = "iOS-BLE-Android Watch AppTests";
+			productReference = B0404F0B2D68E95400BA913A /* iOS-BLE-Android Watch AppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B0404F142D68E95400BA913A /* BTEDemo Watch AppUITests */ = {
+		B0404F142D68E95400BA913A /* iOS-BLE-Android Watch AppUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B0404F2F2D68E95400BA913A /* Build configuration list for PBXNativeTarget "BTEDemo Watch AppUITests" */;
+			buildConfigurationList = B0404F2F2D68E95400BA913A /* Build configuration list for PBXNativeTarget "iOS-BLE-Android Watch AppUITests" */;
 			buildPhases = (
 				B0404F112D68E95400BA913A /* Sources */,
 				B0404F122D68E95400BA913A /* Frameworks */,
@@ -308,13 +308,13 @@
 				B0404F172D68E95400BA913A /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				B0404F182D68E95400BA913A /* BTEDemo Watch AppUITests */,
+				B0404F182D68E95400BA913A /* iOS-BLE-Android Watch AppUITests */,
 			);
-			name = "BTEDemo Watch AppUITests";
+			name = "iOS-BLE-Android Watch AppUITests";
 			packageProductDependencies = (
 			);
-			productName = "BTEDemo Watch AppUITests";
-			productReference = B0404F152D68E95400BA913A /* BTEDemo Watch AppUITests.xctest */;
+			productName = "iOS-BLE-Android Watch AppUITests";
+			productReference = B0404F152D68E95400BA913A /* iOS-BLE-Android Watch AppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -351,7 +351,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B0404ECE2D68E95200BA913A /* Build configuration list for PBXProject "BTEDemo" */;
+			buildConfigurationList = B0404ECE2D68E95200BA913A /* Build configuration list for PBXProject "iOS-BLE-Android" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -365,12 +365,12 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B0404ED22D68E95200BA913A /* BTEDemo */,
-				B0404EE22D68E95300BA913A /* BTEDemoTests */,
-				B0404EEC2D68E95300BA913A /* BTEDemoUITests */,
-				B0404EF82D68E95300BA913A /* BTEDemo Watch App */,
-				B0404F0A2D68E95400BA913A /* BTEDemo Watch AppTests */,
-				B0404F142D68E95400BA913A /* BTEDemo Watch AppUITests */,
+				B0404ED22D68E95200BA913A /* iOS-BLE-Android */,
+				B0404EE22D68E95300BA913A /* iOS-BLE-AndroidTests */,
+				B0404EEC2D68E95300BA913A /* iOS-BLE-AndroidUITests */,
+				B0404EF82D68E95300BA913A /* iOS-BLE-Android Watch App */,
+				B0404F0A2D68E95400BA913A /* iOS-BLE-Android Watch AppTests */,
+				B0404F142D68E95400BA913A /* iOS-BLE-Android Watch AppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -468,27 +468,27 @@
 /* Begin PBXTargetDependency section */
 		B0404EE52D68E95300BA913A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B0404ED22D68E95200BA913A /* BTEDemo */;
+			target = B0404ED22D68E95200BA913A /* iOS-BLE-Android */;
 			targetProxy = B0404EE42D68E95300BA913A /* PBXContainerItemProxy */;
 		};
 		B0404EEF2D68E95300BA913A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B0404ED22D68E95200BA913A /* BTEDemo */;
+			target = B0404ED22D68E95200BA913A /* iOS-BLE-Android */;
 			targetProxy = B0404EEE2D68E95300BA913A /* PBXContainerItemProxy */;
 		};
 		B0404EFC2D68E95300BA913A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B0404EF82D68E95300BA913A /* BTEDemo Watch App */;
+			target = B0404EF82D68E95300BA913A /* iOS-BLE-Android Watch App */;
 			targetProxy = B0404EFB2D68E95300BA913A /* PBXContainerItemProxy */;
 		};
 		B0404F0D2D68E95400BA913A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B0404EF82D68E95300BA913A /* BTEDemo Watch App */;
+			target = B0404EF82D68E95300BA913A /* iOS-BLE-Android Watch App */;
 			targetProxy = B0404F0C2D68E95400BA913A /* PBXContainerItemProxy */;
 		};
 		B0404F172D68E95400BA913A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B0404EF82D68E95300BA913A /* BTEDemo Watch App */;
+			target = B0404EF82D68E95300BA913A /* iOS-BLE-Android Watch App */;
 			targetProxy = B0404F162D68E95400BA913A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -615,20 +615,20 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"BTEDemo Watch App/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"iOS-BLE-Android Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = 52C5XZZ89T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = BTEDemo;
+				INFOPLIST_KEY_CFBundleDisplayName = "iOS-BLE-Android";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = wayne.MicroHandGestureCollectorIWatch.BTEDemo;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "wayne.MicroHandGestureCollectorIWatch.iOS-BLE-Android";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = wayne.MicroHandGestureCollectorIWatch.BTEDemo.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "wayne.MicroHandGestureCollectorIWatch.iOS-BLE-Android.watchkitapp";
+				PRODUCT_NAME = "iOS-BLE-Android";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -645,20 +645,20 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"BTEDemo Watch App/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"iOS-BLE-Android Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = 52C5XZZ89T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = BTEDemo;
+				INFOPLIST_KEY_CFBundleDisplayName = "iOS-BLE-Android";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = wayne.MicroHandGestureCollectorIWatch.BTEDemo;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "wayne.MicroHandGestureCollectorIWatch.iOS-BLE-Android";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = wayne.MicroHandGestureCollectorIWatch.BTEDemo.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "wayne.MicroHandGestureCollectorIWatch.iOS-BLE-Android.watchkitapp";
+				PRODUCT_NAME = "iOS-BLE-Android";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -676,11 +676,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"BTEDemo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"iOS-BLE-Android/Preview Content\"";
 				DEVELOPMENT_TEAM = 52C5XZZ89T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = BTEDemo;
+				INFOPLIST_KEY_CFBundleDisplayName = "iOS-BLE-Android";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "本应用需要使用蓝牙扫描以连接 BLE IMU 设备";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "本应用需要使用蓝牙扫描以连接 BLE IMU 设备";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -694,7 +694,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = wayne.MicroHandGestureCollectorIWatch.BTEDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = "wayne.MicroHandGestureCollectorIWatch.iOS-BLE-Android";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -710,11 +710,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"BTEDemo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"iOS-BLE-Android/Preview Content\"";
 				DEVELOPMENT_TEAM = 52C5XZZ89T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = BTEDemo;
+				INFOPLIST_KEY_CFBundleDisplayName = "iOS-BLE-Android";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "本应用需要使用蓝牙扫描以连接 BLE IMU 设备";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "本应用需要使用蓝牙扫描以连接 BLE IMU 设备";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -728,7 +728,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = wayne.MicroHandGestureCollectorIWatch.BTEDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = "wayne.MicroHandGestureCollectorIWatch.iOS-BLE-Android";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -748,13 +748,13 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = wayne.MicroHandGestureCollectorIWatch.BTEDemoTests;
+				PRODUCT_BUNDLE_IDENTIFIER = wayne.MicroHandGestureCollectorIWatch.iOS-BLE-AndroidTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BTEDemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BTEDemo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOS-BLE-Android.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iOS-BLE-Android";
 			};
 			name = Debug;
 		};
@@ -768,13 +768,13 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = wayne.MicroHandGestureCollectorIWatch.BTEDemoTests;
+				PRODUCT_BUNDLE_IDENTIFIER = wayne.MicroHandGestureCollectorIWatch.iOS-BLE-AndroidTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BTEDemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BTEDemo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOS-BLE-Android.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iOS-BLE-Android";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -788,13 +788,13 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = wayne.MicroHandGestureCollectorIWatch.BTEDemoUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = wayne.MicroHandGestureCollectorIWatch.iOS-BLE-AndroidUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = BTEDemo;
+				TEST_TARGET_NAME = iOS-BLE-Android;
 			};
 			name = Debug;
 		};
@@ -807,13 +807,13 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = wayne.MicroHandGestureCollectorIWatch.BTEDemoUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = wayne.MicroHandGestureCollectorIWatch.iOS-BLE-AndroidUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = BTEDemo;
+				TEST_TARGET_NAME = iOS-BLE-Android;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -827,13 +827,13 @@
 				DEVELOPMENT_TEAM = 52C5XZZ89T;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "wayne.MicroHandGestureCollectorIWatch.BTEDemo-Watch-AppTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "wayne.MicroHandGestureCollectorIWatch.iOS-BLE-Android-Watch-AppTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BTEDemo Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BTEDemo Watch App";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOS-BLE-Android Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iOS-BLE-Android Watch App";
 				WATCHOS_DEPLOYMENT_TARGET = 11.2;
 			};
 			name = Debug;
@@ -847,13 +847,13 @@
 				DEVELOPMENT_TEAM = 52C5XZZ89T;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "wayne.MicroHandGestureCollectorIWatch.BTEDemo-Watch-AppTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "wayne.MicroHandGestureCollectorIWatch.iOS-BLE-Android-Watch-AppTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BTEDemo Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BTEDemo Watch App";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOS-BLE-Android Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iOS-BLE-Android Watch App";
 				VALIDATE_PRODUCT = YES;
 				WATCHOS_DEPLOYMENT_TARGET = 11.2;
 			};
@@ -867,13 +867,13 @@
 				DEVELOPMENT_TEAM = 52C5XZZ89T;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "wayne.MicroHandGestureCollectorIWatch.BTEDemo-Watch-AppUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "wayne.MicroHandGestureCollectorIWatch.iOS-BLE-Android-Watch-AppUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				TEST_TARGET_NAME = "BTEDemo Watch App";
+				TEST_TARGET_NAME = "iOS-BLE-Android Watch App";
 				WATCHOS_DEPLOYMENT_TARGET = 11.2;
 			};
 			name = Debug;
@@ -886,13 +886,13 @@
 				DEVELOPMENT_TEAM = 52C5XZZ89T;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "wayne.MicroHandGestureCollectorIWatch.BTEDemo-Watch-AppUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "wayne.MicroHandGestureCollectorIWatch.iOS-BLE-Android-Watch-AppUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				TEST_TARGET_NAME = "BTEDemo Watch App";
+				TEST_TARGET_NAME = "iOS-BLE-Android Watch App";
 				VALIDATE_PRODUCT = YES;
 				WATCHOS_DEPLOYMENT_TARGET = 11.2;
 			};
@@ -901,7 +901,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B0404ECE2D68E95200BA913A /* Build configuration list for PBXProject "BTEDemo" */ = {
+		B0404ECE2D68E95200BA913A /* Build configuration list for PBXProject "iOS-BLE-Android" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B0404F1D2D68E95400BA913A /* Debug */,
@@ -910,7 +910,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B0404F1F2D68E95400BA913A /* Build configuration list for PBXNativeTarget "BTEDemo Watch App" */ = {
+		B0404F1F2D68E95400BA913A /* Build configuration list for PBXNativeTarget "iOS-BLE-Android Watch App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B0404F202D68E95400BA913A /* Debug */,
@@ -919,7 +919,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B0404F232D68E95400BA913A /* Build configuration list for PBXNativeTarget "BTEDemo" */ = {
+		B0404F232D68E95400BA913A /* Build configuration list for PBXNativeTarget "iOS-BLE-Android" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B0404F242D68E95400BA913A /* Debug */,
@@ -928,7 +928,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B0404F262D68E95400BA913A /* Build configuration list for PBXNativeTarget "BTEDemoTests" */ = {
+		B0404F262D68E95400BA913A /* Build configuration list for PBXNativeTarget "iOS-BLE-AndroidTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B0404F272D68E95400BA913A /* Debug */,
@@ -937,7 +937,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B0404F292D68E95400BA913A /* Build configuration list for PBXNativeTarget "BTEDemoUITests" */ = {
+		B0404F292D68E95400BA913A /* Build configuration list for PBXNativeTarget "iOS-BLE-AndroidUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B0404F2A2D68E95400BA913A /* Debug */,
@@ -946,7 +946,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B0404F2C2D68E95400BA913A /* Build configuration list for PBXNativeTarget "BTEDemo Watch AppTests" */ = {
+		B0404F2C2D68E95400BA913A /* Build configuration list for PBXNativeTarget "iOS-BLE-Android Watch AppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B0404F2D2D68E95400BA913A /* Debug */,
@@ -955,7 +955,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B0404F2F2D68E95400BA913A /* Build configuration list for PBXNativeTarget "BTEDemo Watch AppUITests" */ = {
+		B0404F2F2D68E95400BA913A /* Build configuration list for PBXNativeTarget "iOS-BLE-Android Watch AppUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B0404F302D68E95400BA913A /* Debug */,

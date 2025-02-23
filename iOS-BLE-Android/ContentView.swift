@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  BTEDemo
+//  iOS-BLE-Android
 //
 //  Created by wayne on 2025/2/22.
 //

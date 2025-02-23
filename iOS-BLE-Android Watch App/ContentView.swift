@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  BTEDemo Watch App
+//  iOS-BLE-Android Watch App
 //
 //  Created by wayne on 2025/2/22.
 //

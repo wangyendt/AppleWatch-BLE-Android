@@ -1,13 +1,13 @@
 //
-//  BTEDemoUITests.swift
-//  BTEDemoUITests
+//  iOS_BLE_AndroidUITests.swift
+//  iOS-BLE-AndroidUITests
 //
-//  Created by wayne on 2025/2/22.
+//  Created by wayne on 2025/2/23.
 //
 
 import XCTest
 
-final class BTEDemoUITests: XCTestCase {
+final class iOS_BLE_AndroidUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

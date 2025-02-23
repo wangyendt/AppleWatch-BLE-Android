@@ -1,14 +1,14 @@
 //
-//  BTEDemoTests.swift
-//  BTEDemoTests
+//  iOS_BLE_AndroidTests.swift
+//  iOS-BLE-AndroidTests
 //
-//  Created by wayne on 2025/2/22.
+//  Created by wayne on 2025/2/23.
 //
 
 import Testing
-@testable import BTEDemo
+@testable import iOS_BLE_Android
 
-struct BTEDemoTests {
+struct iOS_BLE_AndroidTests {
 
     @Test func example() async throws {
         // Write your test here and use APIs like `#expect(...)` to check expected conditions.

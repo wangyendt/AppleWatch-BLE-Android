@@ -1,13 +1,13 @@
 //
-//  BTEDemo_Watch_AppUITests.swift
-//  BTEDemo Watch AppUITests
+//  iOS_BLE_Android_Watch_AppUITests.swift
+//  iOS-BLE-Android Watch AppUITests
 //
-//  Created by wayne on 2025/2/22.
+//  Created by wayne on 2025/2/23.
 //
 
 import XCTest
 
-final class BTEDemo_Watch_AppUITests: XCTestCase {
+final class iOS_BLE_Android_Watch_AppUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
